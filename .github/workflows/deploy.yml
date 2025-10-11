@@ -1,0 +1,50 @@
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Test Backend
+      run: |
+        cd portal-api
+        dotnet restore
+        dotnet build --configuration Release
+        
+    - name: Test Frontend
+      run: |
+        cd portal-app
+        npm ci
+        npm run build
+        
+    - name: Deploy to EC2
+      if: github.ref == 'refs/heads/main'
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          cd /home/ec2-user/naac-finance
+          git pull origin main
+          chmod +x deploy.sh
+          ./deploy.sh
