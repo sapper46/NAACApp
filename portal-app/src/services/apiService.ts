@@ -1,6 +1,6 @@
 import { LoginRequest, LoginResponse, TableARow, TableBRow, TableCRow, User } from '../types';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://ec2-3-144-44-69.us-east-2.compute.amazonaws.com:5000/api';
 
 class ApiService {
   private getHeaders(): Record<string, string> {

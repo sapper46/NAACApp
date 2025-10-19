@@ -1,0 +1,17 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Database=naac_finance;Username=postgres;Password=p0stgre$"
+  },
+  "Jwt": {
+    "Key": "SuperSecretKeyForJWTAuthentication123456789",
+    "Issuer": "PortalApi",
+    "Audience": "PortalApp"
+  },
+  "AllowedHosts": "*"
+}

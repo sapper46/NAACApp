@@ -10,7 +10,7 @@ module.exports = {
     },
     env_production: {
       NODE_ENV: 'production',
-      REACT_APP_API_URL: 'https://ec2-18-188-55-197.us-east-2.compute.amazonaws.com/api'
+      REACT_APP_API_URL: 'http://ec2-3-144-44-69.us-east-2.compute.amazonaws.com:5000/api'
     }
   }]
 };

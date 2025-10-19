@@ -4,7 +4,7 @@
 echo "Starting deployment..."
 
 # Variables
-APP_DIR="/home/ec2-user/naac-finance"
+APP_DIR="/home/ec2-user/NAACApp"
 API_DIR="$APP_DIR/portal-api"
 FRONTEND_DIR="$APP_DIR/portal-app"
 

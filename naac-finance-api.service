@@ -11,7 +11,7 @@ KillSignal=SIGINT
 SyslogIdentifier=naac-finance-api
 User=ec2-user
 Environment=ASPNETCORE_ENVIRONMENT=Production
-Environment=ASPNETCORE_URLS=http://localhost:5000
+Environment=ASPNETCORE_URLS=http://0.0.0.0:5000
 WorkingDirectory=/var/www/naac-finance-api
 
 [Install]
