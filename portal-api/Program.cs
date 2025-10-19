@@ -47,7 +47,11 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
-        policy.WithOrigins("http://localhost:3000")
+        policy.WithOrigins(
+                "http://localhost:3000",
+                "http://ec2-3-144-44-69.us-east-2.compute.amazonaws.com",
+                "http://ec2-3-144-44-69.us-east-2.compute.amazonaws.com:80"
+              )
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
